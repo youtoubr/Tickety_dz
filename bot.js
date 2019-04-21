@@ -11,7 +11,7 @@ client.login(process.env.Dream_TOKEN);
 
 client.on('ready',async () => console.log(`   - " ${client.user.username} " , Tickety is ready to work.1`));
 client.on('message',async message => {
-    const emojis   = { yes: `${client.guilds.find(r => r.id === '525792863846662164').emojis.find(e => e.name === 'Yes')}`, wrong: `${client.guilds.find(r => r.id === '525792863846662164').emojis.find(e => e.name === 'Wrong')}` };
+    const emojis   = { yes: `${client.guilds.find(r => r.id === '525792863846662164').✅.find(e => e.name === 'Yes')}`, wrong: `${client.guilds.find(r => r.id === '525792863846662164').emojis.find(e => e.name === 'Wrong')}` };
     if(message.author.bot || message.channel.type === 'dm') return;
     let args = message.content.split(" ");
     let author = message.author.id;
@@ -35,7 +35,7 @@ client.on('message',async message => {
     	message.guild.createChannel(`ticket-${current}`, 'text').then(c => {
 		tchannels.push(c.id);
 		c.setParent(category);
-		message.channel.send(`${emojis.yes}, **تم عمل التكت.**`);
+		message.channel.send(`${✅.yes}, **تم عمل التكت.**`);
 		c.overwritePermissions(message.guild.id, {
 			READ_MESSAGES: false,
 			SEND_MESSAGES: false
@@ -54,20 +54,20 @@ client.on('message',async message => {
 		c.send(embed);
 	});
     } else if(args[0].toLowerCase() === `${prefix}ticc`) {
-        if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`${emojis.wrong}, **أنت لست من ادارة السيرفر لتنفيذ هذا الأمر.**`);
+        if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(`${✅.wrong}, **أنت لست من ادارة السيرفر لتنفيذ هذا الأمر.**`);
 		if(args[1] && args[1].toLowerCase() === "enable") {
 			ticc = true;
 			message.channel.send(`${emojis.yes}, **تم تفعيل التكتات , الاَن يمكن لأعضاء السيرفر استخدام امر انشاء التكت**`);
 		} else if(args[1] && args[1].toLowerCase() === "disable") {
 			ticc = false;
-			message.channel.send(`${emojis.yes}, **تم اغلاق نظام التكتات , الاَن لا يمكن لأي عضو استخدام هذا الأمر**`);
+			message.channel.send(`${✅.yes}, **تم اغلاق نظام التكتات , الاَن لا يمكن لأي عضو استخدام هذا الأمر**`);
 		} else if(!args[1]) {
 			if(ticc === true) {
 			ticc = false;
-			message.channel.send(`${emojis.yes}, **تم اغلاق نظام التكتات , الاَن لا يمكن لأي عضو استخدام هذا الأمر**`);
+			message.channel.send(`${✅.yes}, **تم اغلاق نظام التكتات , الاَن لا يمكن لأي عضو استخدام هذا الأمر**`);
 			} else if(ticc === false) {
 			ticc = true;
-			message.channel.send(`${emojis.yes}, **تم تفعيل التكتات , الاَن يمكن لأعضاء السيرفر استخدام امر انشاء التكت**`);
+			message.channel.send(`${✅.yes}, **تم تفعيل التكتات , الاَن يمكن لأعضاء السيرفر استخدام امر انشاء التكت**`);
 			}
 		}
     } else if(args[0].toLowerCase() === `${prefix}close`) {
@@ -92,7 +92,7 @@ client.on('message',async message => {
 				iq++;
 			}
 			if(q === tchannels.length - 1 || q === tchannels.lengh + 1) {
-				message.channel.send(`${emojis.yes}, **تم مسح \`${iq}\` من التكتات.**`);
+				message.channel.send(`${✅.yes}, **تم مسح \`${iq}\` من التكتات.**`);
 			}
 		}
 	}
